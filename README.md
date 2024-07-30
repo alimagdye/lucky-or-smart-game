@@ -124,7 +124,7 @@ Error handling is implemented to ensure a smooth gaming experience:
 ## Screenshots
 
 ![image](https://github.com/user-attachments/assets/ec70510f-3eb8-4cd7-bba3-fed2f2baf076)
-*Screenshot of the modal at the first loading has the rules of the game*
+*Screenshot of a modal, at the first loading of the page, has the rules of the game*
 
 ![image](https://github.com/user-attachments/assets/f54d77f6-0bfb-4093-8747-9b5dba45aa11)
 *Screenshot of the game at the start.*
