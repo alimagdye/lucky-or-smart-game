@@ -66,6 +66,7 @@ To set up this project locally, follow these steps:
 ## Usage
 
 Once the project is set up, open `index.html` in your browser to start the game. You can also play the game online 
+<br>
 at [https://luckyorsmart.netlify.app](https://luckyorsmart.netlify.app).
 
 ## Keyboard Shortcuts
