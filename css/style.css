@@ -7,33 +7,38 @@
     padding: 0;
   }
   
-  html{
-    box-sizing: border-box;
-  }
-
-:root{
+  
+  :root{
     --body-background-color: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
     --main-background-color: rgba(255, 255, 255, 0.35);
     --player-active-background-color: rgba(255, 255, 255, 0.4);
     --current-background-color: #c7365f;
     --winner-background-color: #ffb82099;
     --button-background-color: rgba(255, 255, 255, 0.6);
-  
+    
     --main-text-color: #333;
     --total-score-text-color: #c7365f;
     --white-text-color: #fff;
     --current-text-color: #ddd;
-
+    
     --shodow: box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
-
+    
     --font-family: 'Nunito', sans-serif;
-}
-
-body{
-  background-image: var(--body-background-color);
+  }
+  
+html{
+  box-sizing: border-box;
   height: 100%;
+  overflow: scroll;
+}
+  
+body{
+  background-color: #753682bc;
+  background-image: var(--body-background-color);
   font-family: var(--font-family);
   color: var(--main-text-color);
+  height: 100%;
+  overflow: scroll;
 }
 
 main{
@@ -178,6 +183,15 @@ h2{
   background-color: #d2d2d2;
 }
 
+@media screen and (max-width: 288px){
+  main{
+    height: 43rem;
+  }
+  .total-score{
+    margin-bottom: 12.5rem;
+  }
+}
+
 
 /* START */
 
@@ -282,7 +296,7 @@ footer a{
   transform: translate(-50%, -50%);
   width: 90%;
   max-width: 1000px;
-  height: auto;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.35);
   color: var(--main-text-color);
   font-size: 1.2rem;
@@ -290,10 +304,12 @@ footer a{
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 4;
+  overflow-y: auto;
 }
 
+
 .overlay {
-  position: absolute;
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
