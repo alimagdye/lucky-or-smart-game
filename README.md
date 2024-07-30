@@ -124,15 +124,19 @@ Error handling is implemented to ensure a smooth gaming experience:
 ## Screenshots
 
 ![image](https://github.com/user-attachments/assets/ec70510f-3eb8-4cd7-bba3-fed2f2baf076)
+*Screenshot of the modal at the first loading has the rules of the game*
 
 ![image](https://github.com/user-attachments/assets/f54d77f6-0bfb-4093-8747-9b5dba45aa11)
+*Screenshot of the game at the start.*
 
 ![image](https://github.com/user-attachments/assets/f281f5b4-edae-42b7-ae94-36a4d4f8dd1f)
+*Screenshot of the game on the phone.*
 
 ![image](https://github.com/user-attachments/assets/14385c0e-54d4-4478-be87-79e91545742b)
+*Screenshot of the game interface.*
 
 ![image](https://github.com/user-attachments/assets/c7b69c92-d30d-49ed-8ab1-e3a0c80ad65f)
-*Screenshot of the game interface.*
+*Screenshot of the game after player1 won.*
 
 ## Contact
 
