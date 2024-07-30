@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* reset */
+*, *::before, *::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html{
+    box-sizing: border-box;
+  }
+
+:root{
+    --body-background-color: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+    --main-background-color: rgba(255, 255, 255, 0.35);
+    --player-active-background-color: rgba(255, 255, 255, 0.4);
+    --current-background-color: #c7365f;
+    --winner-background-color: #ffb82099;
+    --button-background-color: rgba(255, 255, 255, 0.6);
+  
+    --main-text-color: #333;
+    --total-score-text-color: #c7365f;
+    --white-text-color: #fff;
+    --current-text-color: #ddd;
+
+    --shodow: box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+
+    --font-family: 'Nunito', sans-serif;
+}
+
+body{
+  background-image: var(--body-background-color);
+  height: 100%;
+  font-family: var(--font-family);
+  color: var(--main-text-color);
+}
+
+main{
+  background-color: var(--main-background-color);
+  width: 90%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  border-radius: 10px;
+  box-shadow: var(--shodow);
+  position: relative;
+  height: 39.4rem;
+  overflow: hidden;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.new-game{
+ margin: 2rem 0 4rem 0;
+}
+
+.roll-dice{
+  position: relative;
+  margin-top: 7rem;
+  z-index: 2;
+}
+
+.add-to-total{
+  margin: 2rem;
+}
+
+.btn{
+  padding: 0.8rem 2rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #444;
+  background-color: var(--white-text-color);
+  background-color: var(--button-background-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.btn:hover{
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* this help assistive technology.
+:focus-visible works just like :focus , but it only applies focus indicator styles to an element when it receives keyboard focus.*/
+.btn:focus-visible{
+  outline: 2px solid #000; /* Black outline */
+  outline-offset: 4px;
+  background-color: #ddd; /* Light gray background */
+}
+
+.active-player{
+  background-color: var(--player-active-background-color);
+  width: 50%;
+  padding: 3rem;
+}
+
+.player0, .player1{
+  border-radius: 0;
+  padding: 4rem 5%;
+  width: 50%;
+  text-align: center;
+}
+
+.player-winner {
+  background-color: var(--winner-background-color);
+}
+
+h2{
+  margin: 2rem 0 8rem 0;
+  font-size: 2.1rem;
+}
+
+.total-score{
+  margin-bottom: 10.5rem;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--total-score-text-color);
+}
+
+.current-score{
+  background-color: var(--current-background-color);
+  color: var(--white-text-color);
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 441px){
+  main{
+    width: 95%;
+    height: 41rem;
+  }
+  .roll-dice{
+    margin-top: 8rem;
+  }
+  .total-score{
+    margin-bottom: 10.8rem;
+  }
+  .current-score{
+    font-size: 1.1rem;
+  }
+  h2{
+    font-size: 2rem;
+    margin-bottom: 10.6rem;
+  }
+  .new-game{
+    margin: 2rem 0 6rem 0;
+  }
+}
+
+@media screen and (max-width: 397px){
+  h2{
+    margin-bottom: 8rem;
+  }
+}
+
+.btn:active {
+  transform: translateY(8px);
+  transition: all 0.5s;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  background-color: #d2d2d2;
+}
+
+
+/* START */
+
+.start, .game-finished{
+  font-family: var(--font-family);
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  background-image: var(--body-background-color);
+  color: var(--white-text-color);
+  border-radius: 10px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.start p{
+  position: absolute;
+  top: 15px;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #fff; 
+  animation: press-down 1s infinite;
+}
+
+@keyframes press-down{
+
+  0%{
+    transform: translateY(0);
+  }
+
+  50%{
+    transform: translateY(10px);  
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+
+/* FINISH */
+
+.game-finished{
+  background-image: var(--body-background-color);
+  display: none;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid var(--white-text-color); 
+  animation: press-down 1s infinite;
+  position: absolute;
+  top: 15px;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+footer{
+  text-align: center;
+  color: var(--current-text-color);
+  font-size: 1.3rem;
+}
+
+footer a{
+  color: var(--current-text-color);
+}
+
+/* Modal part */
+
+
+.close-modal {
+  position: absolute;
+  top: 0rem;
+  right: 1rem;
+  font-size: 3rem;
+  color: var(--main-text-color);
+  cursor: pointer;
+  border: none;
+  background: none;
+  z-index: 5;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1000px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.35);
+  color: var(--main-text-color);
+  font-size: 1.2rem;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 4;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #753682bc;
+  backdrop-filter: blur(3px);
+  z-index: 3;
+}
+
+.hidden {
+  display: none;
+}
+
+.play{
+  display: block;
+  margin: 0 auto;
+}
+

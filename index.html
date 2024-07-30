@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Or Smart?</title>
+    <meta name="description" content="An exciting and fun dice game where players compete to reach the winning score first.">
+    <meta name="author" content="Ali Magdy">
+
+<!-- Open Graph Protocol -->
+    <meta property="og:title" content="Lucky Or Smart - Dice Game">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luckyorsmart.netlify.app">
+    <meta property="og:description" content="Challenge your friends in this thrilling dice game and see who can reach the winning score first!">
+    <meta property="og:image" content="./photos/play-new.png">
+
+    <link rel="icon" href="photos/dice-1.png" type="image/png">
+    <link rel="apple-touch-icon" href="photos/dice-1.png">
+
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- dice css -->
+    <link rel="stylesheet" href="./css/dice.css">
+</head>
+<body>
+    <div class="modal" role="region" aria-label="Game rules:">
+        <button class="close-modal" tabindex="0" aria-label="Close modal and play">&times;</button>
+        <h1>Game rules 😍</h1>
+        <p>1. <strong>Game Start:</strong> The game is played between two players. Each player takes turns to roll the dice.</p>
+        <p>2. <strong>Rolling the Dice:</strong> On each turn, a player rolls a single die. The result of the roll is added to the player's current score.</p>
+        <p>3. <strong>Switching Turns:</strong> If a player rolls a 1, their current score for that turn is lost, and their turn ends. The next player then takes their turn. If a player rolls any other number, they can choose to roll again or add their current score to their total score.</p>
+        <p>4. <strong>Adding to Total Score:</strong> If a player decides to add their current score to their total score, their turn ends, and the next player takes their turn.</p>
+        <p>5. <strong>Winning the Game:</strong> The first player to reach or exceed 100 points in their total score wins the game. The winning player is declared, and the game ends.</p>
+        <p>6. <strong>New Game:</strong> Players can start a new game at any time by clicking the "New Game" button. A new game resets all scores and starts with a random player.</p>
+        <p>7. <strong>Keyboard Shortcuts:</strong></p>
+        <ul>
+          <li>Press <strong>P</strong> to close the rules and play the game.</li>
+          <li>Press <strong>R</strong> to roll the dice.</li>
+          <li>Press <strong>K</strong> to keep the current score and add it to the total score.</li>
+          <li>Press <strong>N</strong> to start a new game.</li>
+        </ul>
+        <button class="play btn" role="button" aria-label="close modal and play" tabindex="0">Play</button>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <main role="region" aria-label="the game">
+        <div class="container">
+            <div class="player player0">
+                <h2 role="region" aria-label="Player 1">
+                    PLAYER 1    
+                </h2>
+                <p class="player0-total-score total-score" role="status" aria-live="polite" aria-label="Player 1 total score">
+                    0
+                </p>
+                <div class="current-score" role="region" aria-label="Player 2 current-score">
+                    <p>
+                        CURRENT
+                    </p>
+                    <span class="current-score-value" role="status" aria-live="polite" aria-label="Player 1 current score">
+                        0
+                    </span>
+                </div>
+            </div>
+            
+        <div class="buttons">
+            <button class="new-game btn" role="button" aria-label="New Game" tabindex="0">
+                🔄 New Game
+            </button>
+
+            <!-- dice -->
+            <div class="dice-container" role="region" aria-label="this part will show the dice number after clicking roll dice">
+                <!-- when finishing -->
+                <div class="game-finished" role="alert" aria-live="assertive" aria-label="To play again click on Roll Dice">
+                    <div class="arrow-up"></div>
+                    <p>Again</p>
+                </div>
+                <!-- when starting -->
+                <div class="start" role="alert" aria-live="assertive" aria-label="To start click on Roll Dice">
+                    <p>Start</p>
+                    <div class="arrow-down"></div>
+                </div>
+                <div id='dice1' class="dice dice-one">
+                  <div id="dice-one-side-one" class='side one' >
+                    <div class="dot one-1"></div>
+                  </div>
+                  <div id="dice-one-side-two" class='side two' >
+                    <div class="dot two-1"></div>
+                    <div class="dot two-2"></div>
+                  </div>
+                  <div id="dice-one-side-three" class='side three'>
+                    <div class="dot three-1"></div>
+                    <div class="dot three-2"></div>
+                    <div class="dot three-3"></div>
+                  </div>
+                  <div id="dice-one-side-four" class='side four' >
+                    <div class="dot four-1"></div>
+                    <div class="dot four-2"></div>
+                    <div class="dot four-3"></div>
+                    <div class="dot four-4"></div>
+                  </div>
+                  <div id="dice-one-side-five" class='side five' >
+                    <div class="dot five-1"></div>
+                    <div class="dot five-2"></div>
+                    <div class="dot five-3"></div>
+                    <div class="dot five-4"></div>
+                    <div class="dot five-5"></div>
+                  </div>
+                  <div id="dice-one-side-six" class='side six' >
+                    <div class="dot six-1"></div>
+                    <div class="dot six-2"></div>
+                    <div class="dot six-3"></div>
+                    <div class="dot six-4"></div>
+                    <div class="dot six-5"></div>
+                    <div class="dot six-6"></div>
+                  </div>
+                </div>
+             </div>
+
+            <button class="roll-dice btn" role="button" aria-label="Roll Dice" tabindex="0">
+                🎲 Roll dice
+            </button>
+            <button class="add-to-total btn" role="button" aria-label="Keep Points" tabindex="0">
+                📥 Keep Points
+            </button>
+        </div>
+        <div class="player player1">
+            <h2 role="region" aria-label="Player 1">
+                PLAYER 2   
+            </h2>
+            <p class="player1-total-score total-score" role="status" aria-live="polite" aria-label="Player 2 total score">
+                0
+            </p>
+            <div class="current-score" role="region" aria-label="Player 2 current-score">
+                <p>
+                    CURRENT
+                </p>
+                <span class="current-score-value" role="status" aria-live="polite" aria-label="Player 2 current score">
+                    0
+                </span>
+            </div>
+    </div>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2024 Made by <abbr title="My GitHub"><a href="https://github.com/alimagdye" target="_blank">Ali Magdy</a></abbr>.</p>
+    </footer>
+    <script src="./js/main.js" type="module"></script>
+    <script src="./js/script.js" type="module"></script>
+</body>
+</html>
