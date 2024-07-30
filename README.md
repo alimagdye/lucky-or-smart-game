@@ -114,6 +114,8 @@ Accessibility is a key consideration in this game:
 - **Role Attributes**: The dice is given a role of img to indicate it's an image element.
 - **Keyboard Navigation**: The game supports keyboard shortcuts for all main actions, ensuring it can be played without a mouse.
 - **Semantic HTML**: Proper use of HTML5 elements enhances the accessibility of the game interface.
+- **testing the accessibility** ![image](https://github.com/user-attachments/assets/6d3df57e-f968-4149-b5dc-b88c3ea94698)
+
 
 ### Deployment
 The game is deployed on Netlify, which provides continuous deployment from the GitHub repository. This ensures that any changes pushed to the repo are automatically deployed.
