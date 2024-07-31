@@ -61,7 +61,7 @@ To set up this project locally, follow these steps:
     ```bash
     cd lucky-or-smart-game
     ```
-3. **Open `index.html` in your preferred browser**.
+3. **Open `index.html` in your preferred browser. You must use live server to open it**.
 
 ## Usage
 
