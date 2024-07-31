@@ -1,5 +1,4 @@
 // dice
-
 const dice = document.getElementById("dice1");
 
 export function rollDice() {

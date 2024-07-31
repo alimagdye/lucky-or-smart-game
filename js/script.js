@@ -1,15 +1,25 @@
+"use strict";
 import { rollDice, getDiceNumberFromClass, handleClose } from "./main.js";
 
 // variables
 let previousDiceNumber, currentScore, gameWorks, activePlayer;
 const totalScore = [];
-const WINNING_SCORE = 100;
+const WINNING_SCORE = 10;
 let firstLoading = true;
+// sounds
+const diceRollSound = new Audio("../assets/sounds/dice-roll.mp3");
+const diceRollSound2 = new Audio("../assets/sounds/dice-roll2.mp3");
+const newGameSound = new Audio("../assets/sounds/new-game.mp3");
+const pickSound = new Audio("../assets/sounds/pick.mp3");
+const errorSound = new Audio("../assets/sounds/error.mp3");
+const winningSound = new Audio("../assets/sounds/winning.mp3");
+// DOM elements
 const dice = document.querySelector(".dice-container");
 const rollDiceBtn = document.querySelector(".roll-dice");
 const addToTotalBtn = document.querySelector(".add-to-total");
 const newGameBtn = document.querySelector(".new-game");
 
+// error handling if effective elements didn't get loaded in the page
 if (
   !dice ||
   !document.querySelector(".roll-dice") ||
@@ -51,6 +61,7 @@ const initializeGame = function () {
         .querySelector(`.player${activePlayer}`)
         .classList.remove("active-player"); // if the game didn't finish, but it is a new game.
     }
+    newGameSound.play();
     handleClose();
     firstLoading = false;
     activePlayer = Math.trunc(Math.random() * 2);
@@ -59,6 +70,9 @@ const initializeGame = function () {
     resetPlayerScores(); // reset total and current scores in the UI
     display(".game-finished", 0); // hide the finish div
     display(".start"); // show the start div
+  }
+  else{
+    errorSound.play();
   }
 };
 
@@ -84,9 +98,19 @@ const handleRoll = function () {
         .classList.add("active-player");
       display(".start", 0); // hide the start div
     }
-
     let diceNumber = rollDice(); // make the animation and return the dice number
-
+    if (previousDiceNumber !== diceNumber) {
+      diceRollSound.play();
+    } else {
+      /*
+    if the previous random number and the new random number are the same, then the dice will go up and down, so the user will feel a change in the dice. note: the rolling animation works only when the numbers are different
+    */
+      diceRollSound2.play();
+      dice.style.bottom = "30px"; // go up
+      setTimeout(() => {
+        dice.style.bottom = "0px"; // then down
+      }, 400);
+    }
     setTimeout(() => {
       previousDiceNumber = getDiceNumberFromClass();
 
@@ -102,23 +126,17 @@ const handleRoll = function () {
 
         switchActivePlayer();
       }
-    }, 800); // to synchronize the rolling animation with the current score apperance timing
-
-    /*
-    if the previous random number and the new random number are the same, then the dice will go up and down, so the user will feel a change in the dice. note: the rolling animation works only when the numbers are different
-    */
-    if (previousDiceNumber === diceNumber) {
-      dice.style.bottom = "30px"; // go up
-      setTimeout(() => {
-        dice.style.bottom = "0px"; // then down
-      }, 400);
-    }
+    }, 700); // to synchronize the rolling animation with the current score apperance timing
+  }
+  else{
+    errorSound.play();
   }
 };
 
 const handleAddToTotal = function () {
   // it work only when the game is on and there's a current score to add
   if (gameWorks && currentScore !== 0) {
+    pickSound.play();
     totalScore[activePlayer] += currentScore;
 
     document.querySelector(
@@ -130,6 +148,7 @@ const handleAddToTotal = function () {
 
     if (totalScore[activePlayer] >= WINNING_SCORE) {
       // winning case
+      winningSound.play();
       document
         .querySelector(`.player${activePlayer}`)
         .classList.add("player-winner");
@@ -144,6 +163,8 @@ const handleAddToTotal = function () {
     } else {
       switchActivePlayer();
     }
+  }else{
+    errorSound.play();
   }
 };
 
@@ -163,7 +184,7 @@ function handleKeydown(event) {
       newGameBtn.click();
       break;
     case "p":
-      document.querySelector(".play").click();  
+      document.querySelector(".play").click();
     default:
       break;
   }
@@ -175,6 +196,7 @@ addToTotalBtn.addEventListener("click", handleAddToTotal);
 
 newGameBtn.addEventListener("click", () => {
   if (!firstLoading) {
+    // to prevent the user from starting a new game before the first loading
     initializeGame();
   }
 });
@@ -198,4 +220,3 @@ document.addEventListener("keydown", (event) => {
     initializeGame();
   }
 });
-
