@@ -97,6 +97,9 @@ JavaScript is used to handle the game logic and interactivity:
 - **LocalStorage**: Could be used to store game state for persistence (not implemented yet, working on it).
 - **main.js** has many exported functions that are used in the game.
 
+### Sound SynchronizationSound Effects
+The game includes sound effects for various actions (rolling the dice, keeping points, starting a new game) that are synchronized with the corresponding animations and logic to enhance user experience.
+
 ### Dice Animation
 The dice rolling animation is implemented using a combination of JavaScript and CSS in main.js and dice.css and imported in the main files of the project and the animations are syncronized with the JavaScript functionalities
 The dice element dynamically changes its class based on the rolled number, which triggers a CSS animation to show the dice face.
