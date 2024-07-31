@@ -4,7 +4,7 @@ import { rollDice, getDiceNumberFromClass, handleClose } from "./main.js";
 // variables
 let previousDiceNumber, currentScore, gameWorks, activePlayer;
 const totalScore = [];
-const WINNING_SCORE = 10;
+const WINNING_SCORE = 100;
 let firstLoading = true;
 // sounds
 const diceRollSound = new Audio("../assets/sounds/dice-roll.mp3");
