@@ -43,7 +43,7 @@ Welcome to "Lucky Or Smart," an exciting and fun dice game where players compete
 ## Technologies Used
 
 - **HTML5**: Structure of the game
-- **CSS3**: Styling and layout, including Flexbox and Grid
+- **CSS3**: Styling and layout, including Flexbox
 - **JavaScript**: Game logic and interactivity
 - **Netlify**: Deployment platform
 - **Git**: Version control
