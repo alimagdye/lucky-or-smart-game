@@ -113,22 +113,22 @@ Meta tags are used to enhance the SEO and social sharing experience:
 **Results of SEO**
   
 ![image](https://github.com/user-attachments/assets/bd70ea2e-de8a-4c08-bc0c-ab9217ab619d)
-  *Screenshot of the game url on Whatsapp.* <br>
+  *Screenshot of the game url on Whatsapp.*
 
 ![image](https://github.com/user-attachments/assets/4490c2b2-bae6-4c23-8b5b-a756ea666173)
-  *Screenshot of the game url on Telegram.* <br>
+  *Screenshot of the game url on Telegram.*
   
 ![image](https://github.com/user-attachments/assets/3834bcfb-ae88-4144-86ed-249c5c9be19a)
-  *Screenshot of the game url on LinkedIn.* <br>
+  *Screenshot of the game url on LinkedIn.*
 
 ![image](https://github.com/user-attachments/assets/97df85cd-2e9f-473d-8bc6-217aa8e947c9)
-  *Screenshot of the game url on Messanger.* <br>
+  *Screenshot of the game url on Messanger.* 
 
 ![image](https://github.com/user-attachments/assets/9ee1cfd2-7797-43d1-bc5b-6968c820e0fc)
-  *Screenshot of the game url on X.* <br>
+  *Screenshot of the game url on X.*
 
 ![image](https://github.com/user-attachments/assets/f13b8bd6-be45-4d09-bd38-a0c5c9abf50c)
- *Screenshot of the game url on Facebook.* <br>
+ *Screenshot of the game url on Facebook.*
 
 ### Accessibility
 Accessibility is a key consideration in this game:
